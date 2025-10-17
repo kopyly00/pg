@@ -1,0 +1,26 @@
+print("Vitejte u nas!")
+pizza = input("Vyberte prosim jaky rozmer pizzy chcete? Na vyber mame: S, M, L\n")
+ucet = 0
+
+if pizza == "S":
+    ucet += 100
+    print("Cena teto pizzy 100 Kc.") 
+elif pizza == "M":
+    ucet += 150
+    print("Cena teto pizzy 150 Kc.")
+else:
+    ucet += 200
+    print("Cena teto pizzy 200 Kc.")
+    
+feferonky = input("Chete se pridat feferonky? ")
+if feferonky == "ano":
+    if pizza == "S":
+        ucet += 20
+    else:
+        ucet += 30
+        
+syr = input("Chete se jeste pridat syr? ")
+if syr == "ano":
+    ucet += 15
+    
+print(f"Vase cena celkem stanovi {ucet}.")
