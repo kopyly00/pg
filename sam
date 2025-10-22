@@ -1,31 +1,43 @@
-def je_prvocislo(cislo):
-    """
-    Funkce overi, zda zadane cislo je nebo neni prvocislo a vrati True nebo False
+import random
+letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 
+'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 
+'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+special_char = ['%', '#', '$', '!', '&', '(', ')', '*', '+', '?']
 
-    Prvocislo je takove cislo vetsi nez 1, ktere neni delitelne zadnym jinym cislem jenom 1 a samo sebou.
 
-    Napoveda jak otestova prvocislo:
-    Cislo 36 vznikne nasobenim:
-    1 * 36
-    2 * 18
-    3 * 12
-    4 * 9
-    6 * 6
-    9 * 4
-    12 * 3
-    18 * 2
-    36 * 1
-    Jak vidite v druhe polovine se dvojice opakuji, tzn. v tomto pripade staci overit delitelnost pouze do 6 (vcetne)
-    """
-    return False
+pismena = int(input("Kolik pismen chcete mit ve svem heslu? "))
+cisla = int(input("Kolik cisel chcete mit ve svem heslu? "))
+char = int(input("Kolik specialnich znaku chcete mit ve svem heslu? "))
 
-def vrat_prvocisla(maximum):
-    """
-    Funkce spocita vsechna prvocisla v rozsahu 1 az maximum a vrati je jako seznam.
-    """
-    return [2,3,5]
+heslo = []
 
-if __name__ == "__main__":
-    cislo = input("Zadej maximum: ")
-    prvocisla = vrat_prvocisla(cislo)
-    print(prvocisla)
+for index in range(0, pismena):
+    random_number = random.randint(0, len(letters)-1)
+    heslo.append(letters[random_number])
+    
+for index in range(0, cisla):
+    random_number = random.randint(0, len(numbers)-1)
+    heslo.append(numbers[random_number])
+    
+for index in range(0, char):
+    random_number = random.randint(0, len(special_char)-1)
+    heslo.append(special_char[random_number])
+print(heslo)   
+translator = ""
+
+for inddex in range(0, 10):
+    random_index_1 = random.randint(0, len(heslo)-1)
+    random_index_2 = random.randint(0, len(heslo)-1)
+    
+    translator = heslo[random_index_2]
+    heslo[random_index_2] = heslo[random_index_1]
+    heslo[random_index_1] = translator
+print(heslo)
+
+heslo_heslo = ""
+
+for one_character in heslo:
+    heslo_heslo += one_character
+    
+print(heslo_heslo)
