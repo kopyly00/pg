@@ -1,31 +1,30 @@
 def je_prvocislo(cislo):
-    """
-    Funkce overi, zda zadane cislo je nebo neni prvocislo a vrati True nebo False
-
-    Prvocislo je takove cislo vetsi nez 1, ktere neni delitelne zadnym jinym cislem jenom 1 a samo sebou.
-
-    Napoveda jak otestova prvocislo:
-    Cislo 36 vznikne nasobenim:
-    1 * 36
-    2 * 18
-    3 * 12
-    4 * 9
-    6 * 6
-    9 * 4
-    12 * 3
-    18 * 2
-    36 * 1
-    Jak vidite v druhe polovine se dvojice opakuji, tzn. v tomto pripade staci overit delitelnost pouze do 6 (vcetne)
-    """
-    return False
+    
+    result = False
+    if cislo > 1:
+        for delitel in range(2, 8):
+            if cislo % delitel == 0 :
+                if cislo / delitel == 1:
+                    result = True
+                    break
+                else:
+                    result = False 
+                    break
+            else: result = True
+    else:  result = False       
+        
+    return result
 
 def vrat_prvocisla(maximum):
-    """
-    Funkce spocita vsechna prvocisla v rozsahu 1 az maximum a vrati je jako seznam.
-    """
-    return [2,3,5]
+    cisla = []
+    for current in range(1, maximum+1):
+        if je_prvocislo(current) == True:
+            cisla.append(current)
+        else: continue 
+    
+    return cisla
 
 if __name__ == "__main__":
-    cislo = input("Zadej maximum: ")
+    cislo = int(input("Zadej maximum: "))
     prvocisla = vrat_prvocisla(cislo)
     print(prvocisla)
