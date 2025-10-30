@@ -145,3 +145,5 @@ if __name__ == "__main__":
     print(je_tah_mozny(jezdec, (9, 3), obsazene_pozice))  # False, je to pozice mimo šachovnici
 
     print(je_tah_mozny(dama, (8, 1), obsazene_pozice))
+    print(je_tah_mozny(kral, (4, 6), obsazene_pozice))
+    print(je_tah_mozny(kral, (6, 6), obsazene_pozice))
