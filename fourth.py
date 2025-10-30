@@ -143,3 +143,5 @@ if __name__ == "__main__":
     print(je_tah_mozny(jezdec, (5, 4), obsazene_pozice))  # False, tato pozice je obsazená jinou figurou
     print(je_tah_mozny(jezdec, (1, 2), obsazene_pozice))  # True
     print(je_tah_mozny(jezdec, (9, 3), obsazene_pozice))  # False, je to pozice mimo šachovnici
+
+    print(je_tah_mozny(dama, (8, 1), obsazene_pozice))
