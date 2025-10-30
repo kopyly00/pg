@@ -1,7 +1,7 @@
 def je_tah_mozny(figurka, cilova_pozice, obsazene_pozice):
     
 
-    if cilova_pozice[0] < 1 | cilova_pozice[0] > 8 | cilova_pozice[1] < 1 | cilova_pozice[1] > 8:
+    if cilova_pozice[0] < 1 or cilova_pozice[0] > 8 or cilova_pozice[1] < 1 or cilova_pozice[1] > 8:
         return False
 
     if cilova_pozice in obsazene_pozice:
@@ -65,29 +65,29 @@ def je_tah_mozny(figurka, cilova_pozice, obsazene_pozice):
             while y != cilova_pozice[1]:
                 if (pozice[0], y) in obsazene_pozice:
                     return False
-                y = y + krok
+                y = y + kroky
         return True
 
     # střelec
     if typ == "střelec":
         if abs(r) != abs(s):
             return False
-    if r > 0:
-        krokx = 1
-    else:
-        krokx = -1
-    if s > 0:
-        kroky = 1
-    else:
-        kroky = -1
-    x = pozice[0] + krokx
-    y = pozice[1] + kroky
-    while x != cilova_pozice[0] and y != cilova_pozice[1]:
-        if (x, y) in obsazene_pozice:
-            return False
-        x = x + krokx
-        y = y + kroky
-    return True
+        if r > 0:
+            krokx = 1
+        else:
+            krokx = -1
+        if s > 0:
+            kroky = 1
+        else:
+            kroky = -1
+        x = pozice[0] + krokx
+        y = pozice[1] + kroky
+        while x != cilova_pozice[0] and y != cilova_pozice[1]:
+            if (x, y) in obsazene_pozice:
+                return False
+            x = x + krokx
+            y = y + kroky
+        return True
 
     # dáma
     if typ == "dáma":
@@ -117,7 +117,7 @@ def je_tah_mozny(figurka, cilova_pozice, obsazene_pozice):
 
     # král
     if typ == "král":
-        if abs(r) <= 1 and abs(s) <= 1:
+        if (abs(r) == 1 or abs(r) == 0) and (abs(s) == 1 or abs(s) == 0) and not (r == 0 and s == 0):
             if cilova_pozice not in obsazene_pozice:
                 return True
         else:
