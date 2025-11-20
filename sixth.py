@@ -12,9 +12,14 @@ def download_url_and_get_all_hrefs(url):
     """
     hrefs = []
 
+
     response = requests.get(url)
+    response.status_code = ""
     if response.status_code == 200:
         obsah = str(response.content)
+    else:
+        print(f"Stránka nenalezena nebo chyba: 404")
+        return hrefs
     
     casti = obsah.split('href="')
     for cast in casti[1:]:
