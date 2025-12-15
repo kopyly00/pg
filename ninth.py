@@ -10,9 +10,8 @@ def dec_to_bin(cislo):
 
     while cislo > 0:
         vysledek = str(cislo % 2) + vysledek
-        cislo // 2 
+        cislo //= 2 
     return vysledek
-
 
 def test_bin_to_dec():
     assert dec_to_bin("0") == "0"
