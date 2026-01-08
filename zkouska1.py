@@ -23,8 +23,6 @@ def process_numbers(numbers):
     return vysledky
 
 
-
-
 # Unit testy
 def test_process_numbers():
     assert process_numbers([1, 6, 3, '5', 8]) == [12]
