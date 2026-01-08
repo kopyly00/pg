@@ -9,7 +9,7 @@
 # pokud Vám pytest nazahlásí žádné chyby, máte hotovo!
 #
 # instalace pytest:
-# pip install pytest
+# pip install pytest 
 
 
 def process_numbers(numbers):
