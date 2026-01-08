@@ -14,7 +14,15 @@
 
 def process_numbers(numbers):
     # ZDE NAPIŠTE VÁŠ KÓD
-    return []
+    vysledky = []
+    for x in numbers:
+        if type(x) not in (int, float):
+            return vysledky
+        if x > 5:
+            vysledky.append(x * 2)
+    return vysledky
+
+
 
 
 # Unit testy
