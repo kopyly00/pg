@@ -60,8 +60,8 @@ def test_shapes():
 
 
 if __name__ == "__main__":
-    #shape = Shape()
-    #print(shape)
+    shape = Shape()
+    print(shape)
     rect = Rectangle(4, 5)
     print(rect)
     circle = Circle(3)
